@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'lib4399Login_Example' do
+  pod 'lib4399Login', :path => '../'
+
+  target 'lib4399Login_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
