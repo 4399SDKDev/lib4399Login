@@ -1,0 +1,16 @@
+PODS:
+  - lib4399Login (0.1.0)
+
+DEPENDENCIES:
+  - lib4399Login (from `../`)
+
+EXTERNAL SOURCES:
+  lib4399Login:
+    :path: ../
+
+SPEC CHECKSUMS:
+  lib4399Login: 979ef79588d1dfbeb4f4d607c50c63ac39d5aca0
+
+PODFILE CHECKSUM: a6b47040066df2e24fd6e3cbbf30808001a22411
+
+COCOAPODS: 1.3.1

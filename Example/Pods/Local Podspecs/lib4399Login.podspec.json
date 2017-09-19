@@ -1,0 +1,22 @@
+{
+  "name": "lib4399Login",
+  "version": "0.1.0",
+  "summary": "A short description of lib4399Login.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/fmricky/lib4399Login",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "fmricky": "zhengxu@4399inc.com"
+  },
+  "source": {
+    "git": "https://github.com/fmricky/lib4399Login.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "lib4399Login/Classes/**/*"
+}
