@@ -8,11 +8,9 @@ Pod::Spec.new do |s|
     s.description      = '4399登录SDK，基于第一版增加第三方SSO登录授权'
 
     s.homepage         = 'https://github.com/4399SDKDev/lib4399Login'
-    # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'fmricky' => 'zhengxu@4399inc.com' }
     s.source           = { :git => 'https://github.com/4399SDKDev/lib4399Login.git', :tag => s.version.to_s }
-    # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
     s.ios.deployment_target = '7.0'
 
@@ -21,41 +19,40 @@ Pod::Spec.new do |s|
 
 
     s.subspec 'Core' do |c|
-        c.resource = 'lib4399Login/Assetslib4399LoginBundle.bundle'
+        c.resource = 'lib4399Login/Assets/lib4399LoginBundle.bundle'
         c.library = 'sqlite3'
         c.framework = 'CoreGraphics','SystemConfiguration'
         c.vendored_framework = 'lib4399Login/Classes/lib4399Login.framework'
-        c.source_files = 'lib4399Login/Classes/lib4399Login.framework/Headers/*.h'
+        #c.source_files = 'lib4399Login/Classes/lib4399Login.framework/Headers/*.h'
         c.user_target_xcconfig = { "LIBRARY_SEARCH_PATHS" => "$(inherited)"}
 
     end
 
     s.subspec 'WeChat' do |wc|
-        wc.library = 'c++','z'
-        wc.framework = 'CoreTelephony'
-        wc.vendored_libraries = 'lib4399Login/M4399SocialSDK/Wechat/WechatLogin/libWechat.a','lib4399Login/M4399SocialSDK/Wechat/Wechat/libWeChatSDK.a'
-        wc.source_files = 'lib4399Login/M4399SocialSDK/Wechat/WechatLogin/*.h','lib4399Login/M4399SocialSDK/Wechat/Wechat/*.h'
+        wc.vendored_libraries = 'lib4399Login/M4399SocialSDK/Wechat/WechatLogin/libWechat.a'
+        wc.source_files = 'lib4399Login/M4399SocialSDK/Wechat/WechatLogin/*.h'
+        wc.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Wechat/WechatLogin/**" }
         wc.dependency 'lib4399Login/Core'
-        wc.xcconfig = { "LIBRARY_SEARCH_PATHS" => "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Wechat/WechatLogin/** $(PODS_ROOT)/lib4399Login/M4399SocialSDK/Wechat/Wechat/**" }
+        wc.dependency 'WechatOpenSDK', '~> 1.7.8'
+        
     end
 
     s.subspec 'QQ' do |qq|
-        qq.resource = 'lib4399Login/M4399SocialSDK/QQ/libQQ/TencentOpenApi_IOS_Bundle.bundle'
-        qq.library = 'c++'
         qq.vendored_libraries = 'lib4399Login/M4399SocialSDK/QQ/QQLogin/libQQLogin.a'
-        qq.vendored_framework = 'lib4399Login/M4399SocialSDK/QQ/libQQ/TencentOpenAPI.framework'
-        qq.source_files = 'lib4399Login/M4399SocialSDK/QQ/libQQ/TencentOpenAPI.framework/Headers/*.h','lib4399Login/M4399SocialSDK/QQ/QQLogin/*.h'
+        qq.source_files = 'lib4399Login/M4399SocialSDK/QQ/QQLogin/*.h'
+        qq.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/QQ/QQLogin/**" }
         qq.dependency 'lib4399Login/Core'
-        qq.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/QQ/QQLogin/ $(PODS_ROOT)/lib4399Login/M4399SocialSDK/QQ/libQQ/**" }
+        qq.dependency 'QQOpenSDK', '~> 3.2.1'
+        
     end
 
     s.subspec 'Weibo' do |wb|
-        wb.library = 'z'
-        wb.framework = 'CoreTelephony'
-        wb.vendored_libraries = 'lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/libSinaLogin.a','lib4399Login/M4399SocialSDK/Weibo/libWeiboSDK/libWeiboSDK.a'
+        wb.vendored_libraries = 'lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/libSinaLogin.a'
         wb.source_files = 'lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/*.h','lib4399Login/M4399SocialSDK/Weibo/libWeiboSDK/*.h'
+        wb.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/**" }
         wb.dependency 'lib4399Login/Core'
-        wb.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/** $(PODS_ROOT)/lib4399Login/M4399SocialSDK/Weibo/libWeiboSDK/**" }
+        wb.dependency 'VPWeiboSDK', '~> 3.2.0'
+        
     end
 
     s.subspec 'All' do |a|
