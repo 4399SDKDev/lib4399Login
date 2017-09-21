@@ -1,5 +1,18 @@
 PODS:
-  - lib4399Login (0.1.0)
+  - lib4399Login (0.0.1):
+    - lib4399Login/All (= 0.0.1)
+  - lib4399Login/All (0.0.1):
+    - lib4399Login/Core
+    - lib4399Login/QQ
+    - lib4399Login/WeChat
+    - lib4399Login/Weibo
+  - lib4399Login/Core (0.0.1)
+  - lib4399Login/QQ (0.0.1):
+    - lib4399Login/Core
+  - lib4399Login/WeChat (0.0.1):
+    - lib4399Login/Core
+  - lib4399Login/Weibo (0.0.1):
+    - lib4399Login/Core
 
 DEPENDENCIES:
   - lib4399Login (from `../`)
@@ -9,7 +22,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  lib4399Login: 979ef79588d1dfbeb4f4d607c50c63ac39d5aca0
+  lib4399Login: 3995758b5fe3f70e2feb599574d37e015841c0e6
 
 PODFILE CHECKSUM: a6b47040066df2e24fd6e3cbbf30808001a22411
 

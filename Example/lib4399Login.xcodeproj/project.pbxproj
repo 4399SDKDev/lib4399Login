@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1749675337FF96031B7598BE /* Pods_lib4399Login_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lib4399Login_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		17DF08DF1E23FC351E5F5CC4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		17DF08DF1E23FC351E5F5CC4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* lib4399Login_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lib4399Login_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,9 +62,9 @@
 		77648E925557A27440876D70 /* Pods-lib4399Login_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lib4399Login_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lib4399Login_Tests/Pods-lib4399Login_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE8592F4B8DEBF6D6E58D6D6 /* Pods-lib4399Login_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lib4399Login_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lib4399Login_Tests/Pods-lib4399Login_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		DA55AB8393B91CED9F2DF743 /* lib4399Login.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = lib4399Login.podspec; path = ../lib4399Login.podspec; sourceTree = "<group>"; };
+		DA55AB8393B91CED9F2DF743 /* lib4399Login.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = lib4399Login.podspec; path = ../lib4399Login.podspec; sourceTree = "<group>"; };
 		DD7AF7CDCB77177AF2FD3652 /* Pods-lib4399Login_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lib4399Login_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lib4399Login_Example/Pods-lib4399Login_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		EF67C040342EFEF697287F63 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		EF67C040342EFEF697287F63 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F66BDD4B7001538E8F39F3BA /* Pods_lib4399Login_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lib4399Login_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA98A825E131326D4800728F /* Pods-lib4399Login_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lib4399Login_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-lib4399Login_Example/Pods-lib4399Login_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,6 +250,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = fmricky;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 45W875EJUJ;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -369,9 +372,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lib4399Login_Example/Pods-lib4399Login_Example-resources.sh",
+				"${PODS_ROOT}/../../lib4399Login/M4399SocialSDK/QQ/libQQ/TencentOpenApi_IOS_Bundle.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -533,9 +539,12 @@
 			baseConfigurationReference = DD7AF7CDCB77177AF2FD3652 /* Pods-lib4399Login_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 45W875EJUJ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lib4399Login/lib4399Login-Prefix.pch";
 				INFOPLIST_FILE = "lib4399Login/lib4399Login-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -548,9 +557,12 @@
 			baseConfigurationReference = FA98A825E131326D4800728F /* Pods-lib4399Login_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 45W875EJUJ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lib4399Login/lib4399Login-Prefix.pch";
 				INFOPLIST_FILE = "lib4399Login/lib4399Login-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

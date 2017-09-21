@@ -1,9 +1,9 @@
 {
   "name": "lib4399Login",
-  "version": "0.1.0",
-  "summary": "A short description of lib4399Login.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/fmricky/lib4399Login",
+  "version": "0.0.1",
+  "summary": "4399登录SDK第二版",
+  "description": "4399登录SDK，基于第一版增加第三方SSO登录授权",
+  "homepage": "https://github.com/4399SDKDev/lib4399Login",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,108 @@
     "fmricky": "zhengxu@4399inc.com"
   },
   "source": {
-    "git": "https://github.com/fmricky/lib4399Login.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/4399SDKDev/lib4399Login.git",
+    "tag": "0.0.1"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "7.0"
   },
-  "source_files": "lib4399Login/Classes/**/*"
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "Core",
+      "resources": "lib4399Login/Assetslib4399LoginBundle.bundle",
+      "libraries": "sqlite3",
+      "frameworks": [
+        "CoreGraphics",
+        "SystemConfiguration"
+      ],
+      "vendored_frameworks": "lib4399Login/Classes/lib4399Login.framework",
+      "source_files": "lib4399Login/Classes/lib4399Login.framework/Headers/*.h",
+      "user_target_xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "$(inherited)"
+      }
+    },
+    {
+      "name": "WeChat",
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "frameworks": "CoreTelephony",
+      "vendored_libraries": [
+        "lib4399Login/M4399SocialSDK/Wechat/WechatLogin/libWechat.a",
+        "lib4399Login/M4399SocialSDK/Wechat/Wechat/libWeChatSDK.a"
+      ],
+      "source_files": [
+        "lib4399Login/M4399SocialSDK/Wechat/WechatLogin/*.h",
+        "lib4399Login/M4399SocialSDK/Wechat/Wechat/*.h"
+      ],
+      "dependencies": {
+        "lib4399Login/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Wechat/WechatLogin/** $(PODS_ROOT)/lib4399Login/M4399SocialSDK/Wechat/Wechat/**"
+      }
+    },
+    {
+      "name": "QQ",
+      "resources": "lib4399Login/M4399SocialSDK/QQ/libQQ/TencentOpenApi_IOS_Bundle.bundle",
+      "libraries": "c++",
+      "vendored_libraries": "lib4399Login/M4399SocialSDK/QQ/QQLogin/libQQLogin.a",
+      "vendored_frameworks": "lib4399Login/M4399SocialSDK/QQ/libQQ/TencentOpenAPI.framework",
+      "source_files": [
+        "lib4399Login/M4399SocialSDK/QQ/libQQ/TencentOpenAPI.framework/Headers/*.h",
+        "lib4399Login/M4399SocialSDK/QQ/QQLogin/*.h"
+      ],
+      "dependencies": {
+        "lib4399Login/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/QQ/QQLogin/ $(PODS_ROOT)/lib4399Login/M4399SocialSDK/QQ/libQQ/**"
+      }
+    },
+    {
+      "name": "Weibo",
+      "libraries": "z",
+      "frameworks": "CoreTelephony",
+      "vendored_libraries": [
+        "lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/libSinaLogin.a",
+        "lib4399Login/M4399SocialSDK/Weibo/libWeiboSDK/libWeiboSDK.a"
+      ],
+      "source_files": [
+        "lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/*.h",
+        "lib4399Login/M4399SocialSDK/Weibo/libWeiboSDK/*.h"
+      ],
+      "dependencies": {
+        "lib4399Login/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/** $(PODS_ROOT)/lib4399Login/M4399SocialSDK/Weibo/libWeiboSDK/**"
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "lib4399Login/Core": [
+
+        ],
+        "lib4399Login/WeChat": [
+
+        ],
+        "lib4399Login/QQ": [
+
+        ],
+        "lib4399Login/Weibo": [
+
+        ]
+      }
+    }
+  ]
 }

@@ -1,0 +1,1 @@
+../../../../../lib4399Login/M4399SocialSDK/QQ/QQLogin/M4399QQHandler.h
