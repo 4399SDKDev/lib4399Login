@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
         wc.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Wechat/WechatLogin/**" }
         wc.dependency 'lib4399Login/Core'
         wc.dependency 'WechatOpenSDK', '~> 1.7.8'
-        
+        wc.required_query_schemes = ["wechat", "weixin"]
     end
 
     s.subspec 'QQ' do |qq|
@@ -43,6 +43,7 @@ Pod::Spec.new do |s|
         qq.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/QQ/QQLogin/**" }
         qq.dependency 'lib4399Login/Core'
         qq.dependency 'QQOpenSDK', '~> 3.2.1'
+        qq.required_query_schemes = ["mqqapi", "mqq","mqqOpensdkSSoLogin","mqqconnect","mqqopensdkdataline","mqqopensdkgrouptribeshare","mqqopensdkfriend","mqqopensdkapi","mqqopensdkapiV2","mqqopensdkapiV3","mqqopensdkapiV4","mqzoneopensdk","wtloginmqq","wtloginmqq2","mqqwpa","mqzone","mqzonev2","mqzoneshare","wtloginqzone","mqzonewx","mqzoneopensdkapiV2","mqzoneopensdkapi19","mqzoneopensdkapi","mqqbrowser","mttbrowser","tim","timapi","timopensdkfriend","timwpa","timgamebindinggroup","timapiwallet","timOpensdkSSoLogin","wtlogintim","timopensdkgrouptribeshare","timopensdkapiV4","timgamebindinggroup","timopensdkdataline","wtlogintimV1","timapiV1"]
         
     end
 
@@ -52,7 +53,7 @@ Pod::Spec.new do |s|
         wb.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/**" }
         wb.dependency 'lib4399Login/Core'
         wb.dependency 'VPWeiboSDK', '~> 3.2.0'
-        
+        wb.required_query_schemes = ["sinaweibohd", "sinaweibo","sinaweibosso","weibosdk","weibosdk2.5"]
     end
 
     s.subspec 'All' do |a|
