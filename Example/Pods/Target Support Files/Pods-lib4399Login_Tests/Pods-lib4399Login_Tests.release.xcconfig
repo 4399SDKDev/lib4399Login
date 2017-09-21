@@ -1,0 +1,11 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../lib4399Login/Classes" "${PODS_ROOT}/../../lib4399Login/M4399SocialSDK/QQ/libQQ"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/lib4399Login"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../lib4399Login/M4399SocialSDK/QQ/QQLogin" "${PODS_ROOT}/../../lib4399Login/M4399SocialSDK/Wechat/WechatLogin" "${PODS_ROOT}/../../lib4399Login/M4399SocialSDK/Wechat/Wechat" "${PODS_ROOT}/../../lib4399Login/M4399SocialSDK/Weibo/WeiboLogin" "${PODS_ROOT}/../../lib4399Login/M4399SocialSDK/Weibo/libWeiboSDK"
+OTHER_CFLAGS = $(inherited)  -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/lib4399Login"
+OTHER_LDFLAGS = $(inherited) -l"c++" -l"sqlite3" -l"z" -framework "CoreGraphics" -framework "CoreTelephony" -framework "SystemConfiguration"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

@@ -7,12 +7,26 @@
 //
 
 #import "M4399AppDelegate.h"
+#import <lib4399Login/lib4399Login.h>
 
 @implementation M4399AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    M4399LoginConfig *config  = [[M4399LoginConfig alloc]initWithGameId:@"2" gameKey:@"0660b7f4058f832b618762a769a093ae" supportedInterfaceOrientations:M4399InterfaceOrientationPortrait];
+    [[M4399LoginManager sharedManager] m4399_setPlaform:M4399LoginPlatformType_QQ appKey:@"101412358" redirectURL:nil];
+    [[M4399LoginManager sharedManager] m4399_setPlaform:M4399LoginPlatformType_Sina appKey:@"229786138" redirectURL:@"http://m.4399api.com/openapi/ios-weiboResponse.html"];
+    [[M4399LoginManager sharedManager] m4399_setPlaform:M4399LoginPlatformType_Wechat appKey:@"wx48a2db49368ba312" redirectURL:nil];
+    
+    [M4399LoginManager sharedManager].config = config;
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [[M4399LoginManager sharedManager] m4399_sendAuthRequet];
+//    });
+    
+    
     return YES;
 }
 
